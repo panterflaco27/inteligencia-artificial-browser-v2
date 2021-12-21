@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <meta clarset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="style.css"> 
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+        <title>Buscador Inteligente</title>      
+    </head>
+    <body>
+        <div class="barra">
+            <div class="logo_content">
+                <div class="logo">
+                    <i class="fas fa-quidditch"></i>
+                    <div class="logo_name"> Buscador Inteligente</div>
+                </div>
+                <i class="fas fa-bars" id="btn"></i>
+            </div>
+            <ul class="nav_list">
+                <!--buscador-->
+               <li>
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar...">
+                    <span class="tooltip">Buscar</span>
+               </li> 
+               <!--usuario-->
+               <li>
+                <a href="#">
+                    <i class="fas fa-user"></i>
+                    <span class="links_name">Usuario</span>
+                </a>
+                <span class="tooltip">Usuario</span>
+                </li> 
+           <!--subir objeto--> 
+            <li>
+                <a href="#">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span class="links_name">Nuevo Archivo</span>
+                </a>
+                <span class="tooltip">Nuevo Archivo</span>
+            </li> 
+            <!--ver objetos-->
+            <li>
+                <a href="#">
+                    <i class="fas fa-file"></i>
+                    <span class="links_name">Objetos</span>
+                </a>
+                <span class="tooltip">Objetos</span>
+            </li> 
+            <!--ajustes-->
+            <li>
+                <a href="#">
+                    <i class="fas fa-cog"></i>
+                    <span class="links_name">Ajustes</span>
+                </a>
+                <span class="tooltip">Ajustes</span>
+            </li> 
+            </ul>
+            <i class="fas fa-sign-out-alt" id="log_out"></i>
+        </div>
+        <div class="home_content">
+            <div class="text">Home Content</div>
+        </div>
+        <script>
+            let btn = document.querySelector("#btn");
+            let barra = document.querySelector(".barra");
+            let buscarbtn = document.querySelector(".fa-search");
+
+            btn.onclick = function(){
+                barra.classList.toggle("active");
+            }
+
+            buscarbtn.onclick = function(){
+                barra.classList.toggle("active");
+            }
+        </script>
+    </body>
+</html>

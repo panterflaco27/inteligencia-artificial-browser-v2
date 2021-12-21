@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta clarset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+   <form action="/authenticate" method="POST">
+       <h2>Login</h2>
+       <div class="section">
+
+            <div class="title"><i class="fas fa-user-circle icon"></i> Username </div>
+            
+            <div class="field"><input type="text" id="username" name="username"></div>
+       </div>
+       <div class="section">
+           <div class="title"><i class="fas fa-key icon"></i> Password</div>
+           <div class="field"><input type="password" id="password" name="password"></div>
+       </div>
+       <div class="section">
+           <div class="button"><input type="submit" value="Login"></div>
+           <div class="button"><a href="singup.html">Registrarse</a></div>
+       </div>
+   </form> 
+</body>
+</html>
