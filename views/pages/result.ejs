@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+<main>
+    <div class="jumbotron">
+        <h1>IA Browser</h1>
+        <p>Welcome to Register ITSX Smart Browser</p>
+        <h2>Resultados</h2>
+    </div>
+</main>
+
+<div class="container">
+    <table class="table table-bordered table striped text-center mt-4">
+        <thead>
+            <tr class="bg-primary text-white">
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Granularidad</th>
+                <th scope="col">Topicos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% datos.forEach(function(archivo){ %>
+            <tr class="text-black">
+                <style>
+                    .text-black{
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-size: small;
+                    }
+                </style>
+                <th><%= archivo.nombre%></th>
+                <th><%= archivo.descripción%></th>
+                <th><%= archivo.granularidad%></th>
+                <th><%= archivo.topico%></th>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <a href="/views/pages/principal.ejs" class="btn btn-secondary">Atras</a>
+</div>
+</body>
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

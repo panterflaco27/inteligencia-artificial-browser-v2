@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+<main>
+    <div class="jumbotron">
+        <h1>IA Browser</h1>
+        <p>Welcome to Register ITSX Smart Browser</p>
+    </div>
+</main>
+    <div class="barra">
+        <div class="logo_content">
+            <div class="logo">
+                <i class="fas fa-quidditch"></i>
+                <div class="logo_name"> Buscador Inteligente</div>
+            </div>
+            <i class="fas fa-bars" id="btn"></i>
+        </div>
+        <ul class="nav_list">
+      
+        </ul>
+        <i class="fas fa-sign-out-alt" id="log_out"></i>
+    </div>
+    <div class="home_content">
+        <div class="text">Buscador</div>
+    </div>
+    <script>
+        let btn = document.querySelector("#btn");
+        let barra = document.querySelector(".barra");
+        let buscarbtn = document.querySelector(".fa-search");
+
+        btn.onclick = function(){
+            barra.classList.toggle("active");
+        }
+
+        buscarbtn.onclick = function(){
+            barra.classList.toggle("active");
+        }
+    </script>
+    <!--buscador-->
+    <form action="/buscar" method="get">
+    <div>
+        <i class="fas fa-search"></i>
+        <!--<input type="text" id="buscador" name="buscador" placeholder="Buscar...">-->
+        <span class="tooltip">Buscar</span>
+        <button type="submit" class="btn btn-primary" tabindex="8">Buscar</button>
+    </div> 
+    </form>
+    <script>
+        var buscador
+        buscador = document.getElementById('buscador');
+      </script>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

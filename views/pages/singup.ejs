@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<main>
+    <div class="jumbotron">
+        <h1>IA Browser</h1>
+        <p>Welcome to Register ITSX Smart Browser</p>
+    </div>
+</main>
+<form action="/register" method="POST">
+    <h2>Registro</h2>
+    <div class="section">
+         <div class="title"><i class="fas fa-user-circle icon"></i> Username</div>
+         <div class="field"><input type="text" id="username" name="username"></div>
+    </div>
+    <div class="section">
+        <div class="title"><i class="fas fa-key icon"></i> Password</div>
+        <div class="field"><input type="password" id="password" name="password"></div>
+    </div>
+    <div class="section">
+        <div class="title">Tipo de usuario</div>
+        <div class="radio">
+            <input type="radio" name="tipouse" id="tipouse" value="1"> Alumno
+            <input type="radio" name="tipouse" id="tipouse" value="0"> Maestro
+         </div>
+    </div>
+    <div class="section">
+        <div class="button"><input type="submit" value="Registrar usuario"></div>
+        <div class="button"><a href="/">Login</a></div>
+    </div>
+</form> 
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

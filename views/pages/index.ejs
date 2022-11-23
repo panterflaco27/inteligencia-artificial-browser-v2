@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+   
+<main>
+<div class="jumbotron">
+    <h1>IA Browser</h1>
+        <p>Welcome to ITSX Smart Browser</p>
+    </div>
+</main>
+<form action="/authenticate" method="POST">
+    <h2>Login</h2>
+    <div class="section">
+
+         <div class="title"><i class="fas fa-user-circle icon"></i> Username </div>
+         
+         <div class="field"><input type="text" id="username" name="username"></div>
+    </div>
+    <div class="section">
+        <div class="title"><i class="fas fa-key icon"></i> Password</div>
+        <div class="field"><input type="password" id="password" name="password"></div>
+    </div>
+    <div class="section">
+        <div class="button"><input type="submit" value="Login"></div>
+        <div class="button"><a href="/views/pages/singup.ejs">Registrarse</a></div>
+    </div>
+</form> 
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>
