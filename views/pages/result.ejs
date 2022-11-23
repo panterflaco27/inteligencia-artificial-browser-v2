@@ -6,20 +6,18 @@
 <body class="container">
 <main>
     <div class="jumbotron">
-        <h1>IA Browser</h1>
-        <p>Welcome to Register ITSX Smart Browser</p>
+        <h1>Base de conocimiento</h1>
+        <p>Nodos dentro de la base de conocimiento</p>
         <h2>Resultados</h2>
     </div>
 </main>
 
 <div class="container">
-    <table class="table table-bordered table striped text-center mt-4">
+    <table class="table table-bordered table striped text-center mt-2">
         <thead>
             <tr class="bg-primary text-white">
                 <th scope="col">Nombre</th>
-                <th scope="col">Descripcion</th>
-                <th scope="col">Granularidad</th>
-                <th scope="col">Topicos</th>
+                <th scope="col">Descripci&oacute;n</th>
             </tr>
         </thead>
         <tbody>
@@ -32,9 +30,7 @@
                     }
                 </style>
                 <th><%= archivo.nombre%></th>
-                <th><%= archivo.descripción%></th>
-                <th><%= archivo.granularidad%></th>
-                <th><%= archivo.topico%></th>
+                <th><%= archivo.descripcion%></th>
             </tr>
             <% }) %>
         </tbody>

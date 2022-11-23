@@ -5,61 +5,41 @@
 </head>
 
 <body class="container">
-<main>
-    <div class="jumbotron">
-        <h1>IA Browser</h1>
-        <p>Welcome to Register ITSX Smart Browser</p>
-    </div>
-</main>
+    <main>  
+        <div class="jumbotron">
+            <h1>Base de conocimiento</h1>
+            <p>Bienvenido a la base de conocimiento sobre la producci&oacute;n de sidra de manzana</p>
+        </div>
+    </main>
     <div class="barra">
         <div class="logo_content">
             <div class="logo">
                 <i class="fas fa-quidditch"></i>
-                <div class="logo_name"> Buscador Inteligente</div>
+                <div class="logo_name">Apartados:</div>
             </div>
             <i class="fas fa-bars" id="btn"></i>
         </div>
         <ul class="nav_list">
-           <!--usuario
-           <li>
-            <a href="#">
-                <i class="fas fa-user"></i>
-                <span class="links_name">Usuario</span>
-            </a>
-            <span class="tooltip">Usuario</span>
-            </li> 
-        -->
-       <!--subir objeto--> 
-        <li>
-            <a href="/views/pages/create.ejs">
-                <i class="fas fa-cloud-upload-alt"></i>
-                <span class="links_name">Nuevo Archivo</span>
-            </a>
-            <span class="tooltip"></span>
-        </li> 
-        <!--ver objetos
-        <li>
-            <a href="#">
-                <i class="fas fa-file"></i>
-                <span class="links_name">Objetos</span>
-            </a>
-            <span class="tooltip">Objetos</span>
-        </li>
-        -->
-        <!--ajustes--
-        <li>
-            <a href="#">
-                <i class="fas fa-cog"></i>
-                <span class="links_name">Ajustes</span>
-            </a>
-            <span class="tooltip">Ajustes</span>
-        </li>
-        -->        
+       <!--Crear nodo--> 
+            <li>
+                <a href="/views/pages/create.ejs">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span class="links_name">Nuevo nodo</span>
+                </a>
+                <span class="tooltip"></span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span class="links_name">Nueva relaci&oacute;n</span>
+                </a>
+            </li>    
         </ul>
         <i class="fas fa-sign-out-alt" id="log_out"></i>
     </div>
+
     <div class="home_content">
-        <div class="text">Buscador</div>
+        <div class="text">Contenido</div>
     </div>
     <script>
         let btn = document.querySelector("#btn");
@@ -76,21 +56,20 @@
     </script>
     <!--buscador-->
     <form action="/buscar" method="get">
-    <div>
-        <i class="fas fa-search"></i>
-        <!--<input type="text" id="buscador" name="buscador" placeholder="Buscar...">-->
-        <span class="tooltip">Buscar</span>
-        <button type="submit" class="btn btn-primary" tabindex="8">Buscar</button>
-    </div> 
+        <div>
+            <i class="fas fa-search"></i>
+            <!--<input type="text" id="buscador" name="buscador" placeholder="Buscar...">-->
+            <span class="tooltip">Buscar</span>
+            <button type="submit" class="btn btn-primary" tabindex="8">Buscar</button>
+        </div> 
     </form>
     <script>
         var buscador
         buscador = document.getElementById('buscador');
-      </script>
+    </script>
 
-<footer>
-    <%- include('../partials/footer'); %>
-</footer>
-
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
 </body>
 </html>
