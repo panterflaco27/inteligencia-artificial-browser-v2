@@ -5,8 +5,9 @@
 </head>
 
 <body class="container">
-    <main>  
-        <div class="jumbotron">
+    <main>
+        <script src="https://kit.fontawesome.com/27e1a307fa.js" crossorigin="anonymous"></script>
+        <div class="jumbotron text-bg-dark">
             <h1>Base de conocimiento</h1>
             <p>Bienvenido a la base de conocimiento sobre la producci&oacute;n de sidra de manzana</p>
         </div>
@@ -14,10 +15,9 @@
     <div class="barra">
         <div class="logo_content">
             <div class="logo">
-                <i class="fas fa-quidditch"></i>
                 <div class="logo_name">Apartados:</div>
             </div>
-            <i class="fas fa-bars" id="btn"></i>
+
         </div>
         <ul class="nav_list">
        <!--Crear nodo--> 
@@ -29,13 +29,21 @@
                 <span class="tooltip"></span>
             </li>
             <li>
-                <a href="#">
+                <a href="/views/pages/relacion.ejs">
                     <i class="fas fa-cloud-upload-alt"></i>
                     <span class="links_name">Nueva relaci&oacute;n</span>
                 </a>
-            </li>    
+            </li>
+
+            <!--eliminar nodo-->
+            <li>
+                <a href="/views/pages/eliminar.ejs">
+                    <i class="fa-solid fa-eraser"></i>
+                    <span class="links_name">Eliminar nodo o relaci&oacute;n</span>
+                </a>
+            </li>
         </ul>
-        <i class="fas fa-sign-out-alt" id="log_out"></i>
+        
     </div>
 
     <div class="home_content">
@@ -57,9 +65,8 @@
     <!--buscador-->
     <form action="/buscar" method="get">
         <div>
-            <i class="fas fa-search"></i>
+            
             <!--<input type="text" id="buscador" name="buscador" placeholder="Buscar...">-->
-            <span class="tooltip">Buscar</span>
             <button type="submit" class="btn btn-primary" tabindex="8">Buscar</button>
         </div> 
     </form>

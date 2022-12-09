@@ -52,20 +52,66 @@ app.get('/', function(req, res) {
     res.render('pages/principal.ejs');
 })*/
 
-app.post('/create', function(req, res){
-    var tipo = req.body.tipo;
-    var nombre = req.body.nombre;
-    var descripcion = req.body.descripcion;
-
+app.post('/eliminarrelacion', function(req, res){
+    var nombrea = req.body.nombrea;
+    var nombreb = req.body.nombreb;
+    //match (a {nombre:"nodo1"}), (b {nombre:"nodo2"}) match (a)-[r:prueba]->(b) delete r
     session
-        .run('CREATE (a:nodo {nombre:$paramnombre, descripcion:$paramdescripcion}) RETURN a',{$a:tipo,paramnombre:nombre,paramdescripcion:descripcion})
+        .run('MATCH (a {nombre:$nombrea}), (b {nombre:$nombreb}) MATCH (a)-[r:prueba]->(b) DELETE r', {nombrea:nombrea, nombreb:nombreb})
         .then(function(result){
             res.redirect('/views/pages/principal.ejs');
         })
         .catch(function(err){
             console.log(err);
-            res.status(200).send('Archivo NO guardado hay un error.');
+            res.status(200).send('Relación no eliminada');
+        })
+})
+
+
+
+app.post('/eliminar', function(req, res){
+    var nombre = req.body.nombre;
+
+    session
+        .run('MATCH (a:nodo {nombre: $nombre}) DETACH DELETE a', {nombre:nombre})
+        .then(function(result){
+            res.redirect('/views/pages/eliminar.ejs');
+        })
+        .catch(function(err){
+            console.log(err);
+            res.status(200).send('Error al eliminar el nodo!!');
+        })
+})
+
+
+app.post('/create', function(req, res){
+    var nombre = req.body.nombre;
+    var descripcion = req.body.descripcion;
+    session
+        .run('CREATE (a:nodo {nombre:$paramnombre, descripcion:$paramdescripcion}) RETURN a',{paramnombre:nombre,paramdescripcion:descripcion})
+        .then(function(result){
+            res.redirect('/views/pages/principal.ejs');
+        })
+        .catch(function(err){
+            console.log(err);
+            res.status(200).send('Nodo NO guardado hay un error.');
         });
+})
+
+app.post('/relacion', function(req, res){
+    var nom1 = req.body.nombre1;
+    var nom2 = req.body.nombre2;
+
+    session
+        .run('MATCH (a:nodo {nombre: $nom1}), (b:nodo {nombre: $nom2}) CREATE (a)-[:prueba]->(b) RETURN a', {nom1: nom1, nom2: nom2})
+        .then(function(result){
+            
+            res.render('pages/principal.ejs');
+        })
+        .catch(function(err){
+            console.log(err)
+            res.status(200).send('Relacion no creada');
+        })
 })
 
 app.get('/buscar', function(req,res){
@@ -112,6 +158,14 @@ app.get('/views/pages/create.ejs', function(req, res) {
 app.get('/views/pages/alumno.ejs', function(req, res) {
     res.render('pages/alumno.ejs')
 });
+
+app.get('/views/pages/relacion.ejs',function(req,res){
+    res.render('pages/relacion.ejs')
+});
+
+app.get('/views/pages/eliminar.ejs', function(req, res){
+    res.render('pages/eliminar.ejs')
+})
 
 app.listen(3000);
 console.log('Server Started on Port 3000');

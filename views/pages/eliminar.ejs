@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include ('../partials/head.ejs'); %>
+    </head>
+    <body class="container">
+        <main class="jumbotron text-bg-dark">
+            <div>
+                <h1>Base de conocimiento</h1>
+                <p>Eliminar un nodo</p>
+            </div>
+        </main>
+        
+        <div class="card border-secondary">
+            <div class="card-header">Eliminar nodo</div>
+            <div class="card-body">
+                <form action="/eliminar" method="post">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre del nodo</label>
+                        <input type="text" id="nombre" name="nombre" tabindex="1">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" tabindex="8">Eliminar nodo</button>
+                    <a href="/views/pages/principal.ejs" class="btn btn-secondary">Cancelar</a>
+
+                    <script>
+                        var nombre;
+                        nombre = document.getElementById('nombre');
+                    </script>
+                </form>
+            </div>
+        </div>
+        <br>
+        <div class="card border-secondary">
+            <div class="card-header">Eliminar relaci&oacute;n</div>
+            <div class="card-body">
+                <form action="/eliminarrelacion" method="post">
+                    <div class="mb-3">
+                        <label for="nombrea" class="form-label">Nombre del nodo 1</label>
+                        <input type="text" id="nombrea" name="nombrea" tabindex="1">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="nombreb" class="fomr-label">Nombre del nodo 2</label>
+                        <input type="text" id="nombreb" name="nombreb" tabindex="2">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" tabindex="8">Eliminar relaci&oacute;n</button>
+                    <a href="/views/pages/principal.ejs" class="btn btn-secondary">Cancelar</a>
+
+                    <script>
+                        var nombrea, nombreb;
+                        nombrea = document.getElementById('nombrea');
+                        nombreb = document.getElementById('nombreb');
+                    </script>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <%- include('../partials/footer.ejs'); %>
+        </footer>
+    </body>
+</html>
