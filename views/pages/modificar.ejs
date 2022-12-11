@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%-include('../partials/head'); %>
+    </head>
+    <body class="container">
+        <main>
+            <script src="https://kit.fontawesome.com/27e1a307fa.js" crossorigin="anonymous"></script>
+            <div class="jumbotron text-bg-dark">
+                <h1>Base de conocimiento</h1>
+                <p>Modificar nodos</p>
+            </div>
+            
+            <div class="card border-secondary">
+                <div class="card-header">Modificar nombre de un nodo</div>
+                <div class="card-body">
+                    <form action="/modnombre" method="post">
+                        <div class="mb-3">
+                            <label for="nombre1">Nombre del nodo</label>
+                            <input type="text" id="viejo" name="viejo" tabindex="2">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="nombre2">Nombre nuevo</label>
+                            <input type="text" id="nuevo" name="nuevo" tabindex="3">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" tabindex="8">Renombrar</button>
+                        <a href="/views/pages/principal.ejs" class="btn btn-secondary">Cancelar</a>
+
+                        <script>
+                            var viejo, nuevo;
+                            viejo = document.getElementById('viejo');
+                            nuevo = document.getElementById('nuevo');
+                        </script>
+                    </form>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="card border-secondary">
+                <div class="card-header">Modificar descripci&oacute;n de un nodo</div>
+                <div class="card-body">
+                    <form action="/moddesc" method="post">
+                        <div class="mb-3">
+                            <label for="nombre">Nombre del nodo</label>
+                            <input type="text" id="nombre" name="nombre" tabindex="3">
+                        </div>
+                        <div class="mb-3">
+                            <label for="descripcion">Nueva descripci&oacute;n</label>
+                            <input type="text" id="descripcion" name="descripcion" tabindex="3">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" tabindex="8">Cambiar descripci&oacute;n</button>
+                        <a href="/views/pages/principal.ejs" class="btn btn-secondary">Cancelar</a>
+
+                        <script>
+                            var nombre, descripcion;
+                            nombre = document.getElementById('nombre');
+                            descripcion = document.getElementById('descripcion');
+                        </script>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

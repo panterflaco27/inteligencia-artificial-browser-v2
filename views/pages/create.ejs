@@ -7,7 +7,7 @@
 <main>
     <div class="jumbotron text-bg-dark">
         <h1>Base de conocimiento</h1>
-        <p>Crear un nuevo nodo en la base de conocimiento</p>
+        <p>Crear un nuevo nodo o una nueva relaci&oacute;n en la base de conocimiento</p>
     </div>
 </main>
 
@@ -15,12 +15,6 @@
       <div class="card-header">Nuevo nodo</div>
       <div class="card-body">
         <form action="/create" method="post">
-
-          <!--aun no funciona la query para definir el tipo de nodo-->
-          <div class="mb-3">
-            <label for="tipo" class="form-label">Tipo</label>
-            <input type="text" id="archivo" name="tipo" tabindex="1">
-          </div>
 
           <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
@@ -36,12 +30,38 @@
           <a href="/views/pages/principal.ejs" class="btn btn-secondary">Cancelar</a>
 
           <script>
-            var tipo, nombre, descripcion;
-            tipo = document.getElementById('tipo');
+            var nombre, descripcion;
             nombre = document.getElementById('nombre');
             descripcion = document.getElementById('descripcion');
           </script>
         </form>
+      </div>
+    </div>
+    <br>
+    <div class="card border-secondary">
+      <div class="card-header">Nueva relaci&oacute;n</div>
+      <div class="card-body">
+        <form action="/relacion" method="post">
+          <div class="mb-3">
+            <label for="nombre1" class="form-label">Nombre del primer nodo</label>
+            <input type="text" id="nombre1" name="nombre1" tabindex="1">
+          </div>
+    
+          <div class="mb-3">
+            <label for="nombre2" class="form-label">Nombre del segundo nodo</label>
+            <input type="text" id="nombre2" name="nombre2" tabindex="2">
+          </div>
+    
+          <button type="submit" class="btn btn-primary" tabindex="8">Crear relaci&oacute;n</button>
+          <a href="/views/pages/principal.ejs" class="btn btn-secondary">Cancelar</a>
+    
+          <script>
+            var nombre1, nombre2;
+            nombre1 = document.getElementById('nombre1');
+            nombre2 = document.getElementById('nombre2');
+          </script>
+        </form>
+      </div>
       </div>
     </div>
   <footer>
