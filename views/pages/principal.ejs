@@ -1,84 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%- include('../partials/head'); %>
-</head>
+  </head>
 
-<body class="container">
+  <body class="container">
     <main>
-        <script src="https://kit.fontawesome.com/27e1a307fa.js" crossorigin="anonymous"></script>
-        <div class="jumbotron text-bg-dark">
-            <h1>Base de conocimiento</h1>
-            <p>Bienvenido a la base de conocimiento sobre la producci&oacute;n de sidra de manzana</p>
-        </div>
+      <script
+        src="https://kit.fontawesome.com/27e1a307fa.js"
+        crossorigin="anonymous"
+      ></script>
+      <div class="jumbotron text-bg-dark">
+        <h1>Base de conocimiento</h1>
+        <p>
+          Bienvenido a la base de conocimiento sobre la producci&oacute;n de
+          sidra de manzana
+        </p>
+      </div>
     </main>
     <div class="barra">
-        <div class="logo_content">
-            <div class="logo">
-                <div class="logo_name">Apartados:</div>
-            </div>
-
+      <div class="logo_content">
+        <div class="logo">
+          <div class="logo_name">Apartados:</div>
         </div>
-        <ul class="nav_list">
-            <!--Crear nodo--> 
-            <li>
-                <a href="/views/pages/create.ejs">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <span class="links_name">Nuevo nodo o relaci&oacute;n</span>
-                </a>
-                <span class="tooltip"></span>
-            </li>
+      </div>
+      <ul class="nav_list">
+        <!--Crear nodo-->
+        <li>
+          <a href="/views/pages/create.ejs">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <span class="links_name">Nuevo nodo o relaci&oacute;n</span>
+          </a>
+          <span class="tooltip"></span>
+        </li>
 
-            <!--modificar nodos-->
-            <li>
-                <a href="/views/pages/modificar.ejs">
-                    <i class="fa-solid fa-pen"></i>
-                    <span class="links_name">Modificar nodo</span>
-                </a>
-            </li>
+        <!--modificar nodos-->
+        <li>
+          <a href="/views/pages/modificar.ejs">
+            <i class="fa-solid fa-pen"></i>
+            <span class="links_name">Modificar nodo</span>
+          </a>
+        </li>
 
-            <!--eliminar nodo-->
-            <li>
-                <a href="/views/pages/eliminar.ejs">
-                    <i class="fa-solid fa-eraser"></i>
-                    <span class="links_name">Eliminar nodo o relaci&oacute;n</span>
-                </a>
-            </li>
-        </ul>
-        
+        <!--eliminar nodo-->
+        <li>
+          <a href="/views/pages/eliminar.ejs">
+            <i class="fa-solid fa-eraser"></i>
+            <span class="link_name">Eliminar nodo o relaci&oacute;n</span>
+          </a>
+        </li>
+
+        <li>
+            <!--contenido de la base de conocimiento-->
+            <form action="/buscar" method="get">
+                <button type="submit" class="btn btn-link">
+                    <i class="fa-solid fa-folder"></i>
+                    <span class="link_name">Contenido</span>
+                </button>
+            </form>
+        </li>
+      </ul>
     </div>
-
-    <div class="home_content">
-        <div class="text">Contenido</div>
-    </div>
-    <script>
-        let btn = document.querySelector("#btn");
-        let barra = document.querySelector(".barra");
-        let buscarbtn = document.querySelector(".fa-search");
-
-        btn.onclick = function(){
-            barra.classList.toggle("active");
-        }
-
-        buscarbtn.onclick = function(){
-            barra.classList.toggle("active");
-        }
-    </script>
-    <!--buscador-->
-    <form action="/buscar" method="get">
-        <div>
-            
-            <!--<input type="text" id="buscador" name="buscador" placeholder="Buscar...">-->
-            <button type="submit" class="btn btn-primary" tabindex="8">Buscar</button>
-        </div> 
-    </form>
-    <script>
-        var buscador
-        buscador = document.getElementById('buscador');
-    </script>
-
-    <footer>
-        <%- include('../partials/footer'); %>
-    </footer>
-</body>
+    <footer><%- include('../partials/footer'); %></footer>
+  </body>
 </html>
