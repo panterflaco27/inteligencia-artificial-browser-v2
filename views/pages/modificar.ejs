@@ -17,12 +17,12 @@
                     <form action="/modnombre" method="post">
                         <div class="mb-3">
                             <label for="nombre1">Nombre del nodo</label>
-                            <input type="text" id="viejo" name="viejo" tabindex="1">
+                            <input type="text" id="viejo" name="viejo" tabindex="1" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="nombre2">Nombre nuevo</label>
-                            <input type="text" id="nuevo" name="nuevo" tabindex="2">
+                            <input type="text" id="nuevo" name="nuevo" tabindex="2" required>
                         </div>
 
                         <button type="submit" class="btn btn-primary" tabindex="8">Renombrar</button>
@@ -45,11 +45,11 @@
                     <form action="/moddesc" method="post">
                         <div class="mb-3">
                             <label for="nombre">Nombre del nodo</label>
-                            <input type="text" id="nombre" name="nombre" tabindex="3">
+                            <input type="text" id="nombre" name="nombre" tabindex="3" required>
                         </div>
                         <div class="mb-3">
                             <label for="descripcion">Nueva descripci&oacute;n</label>
-                            <input type="text" id="descripcion" name="descripcion" tabindex="4">
+                            <input type="text" id="descripcion" name="descripcion" tabindex="4" required>
                         </div>
 
                         <button type="submit" class="btn btn-primary" tabindex="8">Cambiar descripci&oacute;n</button>

@@ -17,7 +17,7 @@
                 <form action="/eliminar" method="post">
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre del nodo</label>
-                        <input type="text" id="nombre" name="nombre" tabindex="1">
+                        <input type="text" id="nombre" name="nombre" tabindex="1" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary" tabindex="8">Eliminar nodo</button>
@@ -37,12 +37,12 @@
                 <form action="/eliminarrelacion" method="post">
                     <div class="mb-3">
                         <label for="nombrea" class="form-label">Nombre del nodo 1</label>
-                        <input type="text" id="nombrea" name="nombrea" tabindex="2">
+                        <input type="text" id="nombrea" name="nombrea" tabindex="2" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="nombreb" class="fomr-label">Nombre del nodo 2</label>
-                        <input type="text" id="nombreb" name="nombreb" tabindex="3">
+                        <input type="text" id="nombreb" name="nombreb" tabindex="3" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary" tabindex="8">Eliminar relaci&oacute;n</button>
