@@ -22,7 +22,6 @@ var session = driver.session();
 app.post('/eliminarrelacion', function(req, res){
     var nombrea = req.body.nombrea;
     var nombreb = req.body.nombreb;
-    //match (a {nombre:"nodo1"}), (b {nombre:"nodo2"}) match (a)-[r:prueba]->(b) delete r
     session
         .run('MATCH (a {name:$nombrea}), (b {name:$nombreb}) MATCH (a)-[r:prueba]->(b) DELETE r', {nombrea:nombrea, nombreb:nombreb})
         .then(function(result){
