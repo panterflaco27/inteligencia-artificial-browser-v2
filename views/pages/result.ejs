@@ -11,6 +11,17 @@
         <h2>Resultados</h2>
     </div>
 </main>
+<div class="container">
+    <form action="/search" method="get">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+        <input type="text" id="nombre" name="nombre" placeholder="buscar...">
+
+        <script>
+            var nombreb;
+            nombreb = document.getElementById('nombre');
+        </script>
+    </form>
+</div>
 
 <div class="container">
     <table class="table table-bordered table striped text-center mt-2">

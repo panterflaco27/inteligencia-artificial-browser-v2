@@ -24,7 +24,7 @@ app.post('/eliminarrelacion', function(req, res){
     var nombreb = req.body.nombreb;
     //match (a {nombre:"nodo1"}), (b {nombre:"nodo2"}) match (a)-[r:prueba]->(b) delete r
     session
-        .run('MATCH (a {nombre:$nombrea}), (b {nombre:$nombreb}) MATCH (a)-[r:prueba]->(b) DELETE r', {nombrea:nombrea, nombreb:nombreb})
+        .run('MATCH (a {name:$nombrea}), (b {name:$nombreb}) MATCH (a)-[r:prueba]->(b) DELETE r', {nombrea:nombrea, nombreb:nombreb})
         .then(function(result){
             res.redirect('/views/pages/principal.ejs');
         })
@@ -39,7 +39,7 @@ app.post('/eliminar', function(req, res){
     var nombre = req.body.nombre;
 
     session
-        .run('MATCH (a:nodo {nombre: $nombre}) DETACH DELETE a', {nombre:nombre})
+        .run('MATCH (a {name: $nombre}) DETACH DELETE a', {nombre:nombre})
         .then(function(result){
             res.redirect('/views/pages/principal.ejs');
         })
@@ -55,7 +55,7 @@ app.post('/create', function(req, res){
     var nombre = req.body.nombre;
     var descripcion = req.body.descripcion;
     session
-        .run('CREATE (a:nodo {nombre:$paramnombre, descripcion:$paramdescripcion}) RETURN a',{paramnombre:nombre,paramdescripcion:descripcion})
+        .run('CREATE (a:nodo {name:$paramnombre, descripcion:$paramdescripcion}) RETURN a',{paramnombre:nombre,paramdescripcion:descripcion})
         .then(function(result){
             res.redirect('/views/pages/principal.ejs');
         })
@@ -71,7 +71,7 @@ app.post('/relacion', function(req, res){
     var nom2 = req.body.nombre2;
 
     session
-        .run('MATCH (a:nodo {nombre: $nom1}), (b:nodo {nombre: $nom2}) CREATE (a)-[:prueba]->(b) RETURN a', {nom1: nom1, nom2: nom2})
+        .run('MATCH (a {name: $nom1}), (b {name: $nom2}) CREATE (a)-[:prueba]->(b) RETURN a', {nom1: nom1, nom2: nom2})
         .then(function(result){
             
             res.render('pages/principal.ejs');
@@ -89,7 +89,7 @@ app.post('/modnombre', function(req, res){
     var nuevo = req.body.nuevo;
 
     session
-        .run("MATCH (a:nodo {nombre: $viejo}) SET a.nombre = $nuevo RETURN a", {viejo: viejo, nuevo: nuevo})
+        .run("MATCH (a {name: $viejo}) SET a.name = $nuevo RETURN a", {viejo: viejo, nuevo: nuevo})
         .then(function(result){
             res.render('pages/principal.ejs');
         })
@@ -106,7 +106,7 @@ app.post('/moddesc', function(req, res){
     var descripcion = req.body.descripcion;
 
     session
-        .run('MATCH (a:nodo {nombre: $nombre}) WHERE a.nombre = $nombre SET a.descripcion = $descripcion RETURN a',{nombre: nombre, descripcion: descripcion})
+        .run('MATCH (a {name: $nombre}) WHERE a.name = $nombre SET a.descripcion = $descripcion RETURN a',{nombre: nombre, descripcion: descripcion})
         .then(function(result){
             res.render('pages/principal.ejs');
         })
@@ -125,7 +125,7 @@ app.get('/buscar', function(req,res){
             result.records.forEach(function(record){
                 console.log(record._fields[0].properties.descripcion);
                 datarray.push({
-                    nombre: record._fields[0].properties.nombre,
+                    nombre: record._fields[0].properties.name,
                     descripcion: record._fields[0].properties.descripcion,
                 });
             });
@@ -138,8 +138,31 @@ app.get('/buscar', function(req,res){
         });
 })
 
-
-
+//mostrar la busqueda de un nodo especifico
+app.get('/search', function(req,res){
+    const query = req.body.nombre;
+    
+    session
+        .run('match (a) \ where a.name = "$paramquery" \ return a', {paramquery:query})
+        
+        .then((result)=>{
+            
+            let results = [];
+            result.records.forEach((record) => results.push(record.get('a')));
+            console.log(results[0]);
+            console.log('busqueda...');
+            res.render('pages/search.ejs', {
+                results:results
+            })
+            return results;
+            
+        })
+        
+        .catch((err)=>{
+            console.log(err);
+            res.render('pages/search.ejs', { results});
+        })
+})
 
 //muestra pagina de inicio
 app.get('/', function(req, res) {
@@ -170,6 +193,11 @@ app.get('/views/pages/eliminar.ejs', function(req, res){
 app.get('/views/pages/modificar.ejs',function(req, res){
     res.render('pages/modificar.ejs')
 });
+
+//pagina de nodos buscados
+app.get('/views/pages/search.ejs', function(req,res){
+    res.render('pages/search.ejs')
+})
 
 app.listen(3000);
 console.log('Server Started on Port 3000');
