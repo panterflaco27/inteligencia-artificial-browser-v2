@@ -149,7 +149,7 @@ app.get('/search', function(req,res){
             
             let results = [];
             result.records.forEach((record) => results.push(record.get('a')));
-            console.log(results[0]);
+            console.log(results);
             console.log('busqueda...');
             res.render('pages/search.ejs', {
                 results:results
