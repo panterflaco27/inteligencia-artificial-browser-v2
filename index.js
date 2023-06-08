@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Conexion base de datos neo4j
-var driver = neo4j.driver('bolt://localhost:7687', neo4j.auth.basic('neo4j', '123456'));
+var driver = neo4j.driver('bolt://localhost:7687', neo4j.auth.basic('neo4j', '12345678'));
 var session = driver.session();
 
 //eliminar relaciones de nodos
@@ -72,7 +72,7 @@ app.post('/relacion', function(req, res){
     session
         .run('MATCH (a {name: $nom1}), (b {name: $nom2}) CREATE (a)-[:prueba]->(b) RETURN a', {nom1: nom1, nom2: nom2})
         .then(function(result){
-            
+
             res.render('pages/principal.ejs');
         })
         .catch(function(err){
@@ -140,12 +140,12 @@ app.get('/buscar', function(req,res){
 //mostrar la busqueda de un nodo especifico
 app.get('/search', function(req,res){
     const query = req.body.nombre;
-    
+
     session
         .run('match (a) \ where a.name = "$paramquery" \ return a', {paramquery:query})
-        
+
         .then((result)=>{
-            
+
             let results = [];
             result.records.forEach((record) => results.push(record.get('a')));
             console.log(results);
@@ -154,9 +154,9 @@ app.get('/search', function(req,res){
                 results:results
             })
             return results;
-            
+
         })
-        
+
         .catch((err)=>{
             console.log(err);
             res.render('pages/search.ejs', { results});
